@@ -13,10 +13,13 @@ const {
 
 router
   .route('/')
-  .get(advancedResults(Course, {
-    path: 'bootcamp',
-    select: 'name description',
-  }), getCourses)
+  .get(
+    advancedResults(Course, {
+      path: 'bootcamp',
+      select: 'name description',
+    }),
+    getCourses
+  )
   .post(protect, authorize('publisher', 'admin'), addCourse);
 
 router
